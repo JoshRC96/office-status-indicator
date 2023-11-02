@@ -14,12 +14,12 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   if (Serial.available() > 0) {
-    String officeStatus = Serial.read(); //read variable value from Python script through the serial port and will be "busy", "not bussy", or "off"
-    if (officeStatus == "busy") {
+    char officeStatus = Serial.read(); //read variable value from Python script through the serial port and will be 'B', 'N', or 'O'
+    if (officeStatus == 'B') {
       digitalWrite(redPin, HIGH);
       digitalWrite(bluePin, LOW);
       digitalWrite(greenPin, LOW);
-    } else if (officeStatus == "not busy") {
+    } else if (officeStatus == 'N') {
       digitalWrite(redPin, HIGH);
       digitalWrite(bluePin, HIGH);
       digitalWrite(greenPin, HIGH);
